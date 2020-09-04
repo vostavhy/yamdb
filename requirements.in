@@ -1,0 +1,10 @@
+pytest-django
+requests
+django
+djangorestframework
+djangorestframework-simplejwt
+gunicorn
+psycopg2-binary
+django-environ
+django-filter
+django-cors-headers
