@@ -1,5 +1,6 @@
 .git/*
 env/
+*.env
 venv/
 .venv
 .venv/
@@ -18,5 +19,6 @@ __pycache__/
 
 static/
 posts/static/
+migrations/
 
 db.sqlite3
