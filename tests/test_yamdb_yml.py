@@ -7,7 +7,7 @@ class TestWorkflow:
 
     def test_workflow(self):
         try:
-            with open(f'{os.path.join(settings.BASE_DIR, "yamdb.yaml")}', 'r') as f:
+            with open(f'{os.path.join(settings.BASE_DIR, "yamdb.yml")}', 'r') as f:
                 yamdb = f.read()
         except FileNotFoundError:
             assert False, 'Проверьте, что добавили файл yamdb.yaml в корневой каталог для проверки'
