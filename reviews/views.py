@@ -4,17 +4,14 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Comment, Review, Title
 from users.permissions import IsOwnerOrAdminOrModerOrReadOnly
-from .serializers import (
-    CommentSerializer,
-    ReviewSerializer,
-)
+from .serializers import CommentSerializer, ReviewSerializer
 
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,
-                          IsOwnerOrAdminOrModerOrReadOnly,)
+                          IsOwnerOrAdminOrModerOrReadOnly, )
 
     def perform_create(self, serializer):
         title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))

@@ -6,12 +6,7 @@ from rest_framework.permissions import SAFE_METHODS
 from titles.filters import TitleFilter
 from .models import Category, Genre, Title
 from users.permissions import IsAdminUserOrReadOnly
-from .serializers import (
-    CategorySerializer,
-    GenreSerializer,
-    ListTitleSerializer,
-    CreateTitleSerializer,
-)
+from .serializers import CategorySerializer, GenreSerializer, ListTitleSerializer, CreateTitleSerializer
 
 
 class ListCreateDestroyAPIView(
