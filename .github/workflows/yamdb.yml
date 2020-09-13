@@ -21,6 +21,8 @@ jobs:
         pip install flake8 pytest
         pip install -r requirements.txt
     - name: Lint with flake8
+      with:
+        max_line_length: 120
       run: flake8 .
 
     - name: Test with pytest
