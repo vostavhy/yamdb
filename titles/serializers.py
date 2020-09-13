@@ -30,23 +30,14 @@ class ListTitleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Title
-        fields = ('id', 'name', 'year', 'rating',
-                  'description', 'genre', 'category',)
+        fields = ('id', 'name', 'year', 'rating', 'description', 'genre', 'category',)
 
 
 class CreateTitleSerializer(serializers.ModelSerializer):
-    genre = serializers.SlugRelatedField(
-        queryset=Genre.objects.all(),
-        many=True,
-        slug_field='slug',
-        )
-    category = serializers.SlugRelatedField(
-        queryset=Category.objects.all(),
-        slug_field='slug',
-    )
+    genre = serializers.SlugRelatedField(queryset=Genre.objects.all(), many=True, slug_field='slug', )
+    category = serializers.SlugRelatedField(queryset=Category.objects.all(), slug_field='slug', )
     rating = serializers.FloatField(read_only=True)
 
     class Meta:
         model = Title
-        fields = ('id', 'name', 'year', 'rating',
-                  'description', 'genre', 'category',)
+        fields = ('id', 'name', 'year', 'rating', 'description', 'genre', 'category',)
