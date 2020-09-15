@@ -12,8 +12,7 @@ then
 fi
 
 # delete all info from bd 
-# python manage.py flush --no-input
-
-# python manage.py migrate
+python manage.py flush --no-input
+python manage.py migrate
 
 exec "$@"
