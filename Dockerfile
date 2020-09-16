@@ -7,19 +7,15 @@ RUN apk update\
 	&& apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev\
 	&& pip install --upgrade pip
 
-# создать папку, скопировать туда всё из текущей папки
-RUN mkdir /app
-COPY . /app
+# создать папку, назначить её рабочей дирреторией и скопировать туда всё из текущей папки
+WORKDIR /app
+COPY ./ ./
 
 # создать папку для статики
-RUN mkdir /app/static
-WORKDIR /app
+RUN mkdir /static
 
 # установить все зависимости
 RUN pip install -r requirements.txt
 
 # run entrypoint.sh
 # ENTRYPOINT ["/app/entrypoint.sh"]
-
-# запустить gunicorn
-CMD gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000

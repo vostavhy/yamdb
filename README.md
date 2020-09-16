@@ -28,17 +28,18 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 Данная инструкция взята из [документации Docker](https://docs.docker.com/engine/install/). Там же вы найдете инструкцию по установке docker-compose на другие системы.
 
-#### Шаг второй. Сборка контейнера
+#### Шаг второй. Сборка и запуск контейнера
 ```bash
-docker-compose build
+docker-compose up -d --build
 ```
-#### Шаг третий. Запуск контейнера
+#### Шаг третий. База данных
 ```bash
-docker-compose up
-```
-#### Шаг четвертый. База данных
-```bash
+docker-compose run web python manage.py makemigrations --no-input
 docker-compose run web python manage.py migrate --no-input
+```
+#### Шаг четвертый. Сбор статики
+```bash
+docker-compose run web python manage.py collectstatic --no-input
 ```
 ## Использование
 ### Создание суперпользователя Django
