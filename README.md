@@ -26,7 +26,9 @@ docker-compose up -d --build
 ```
 #### Шаг четвертый. База данных
 ```bash
-docker-compose run web python manage.py makemigrations --no-input
+docker-compose run web python manage.py makemigrations reviews --no-input
+docker-compose run web python manage.py makemigrations users --no-input
+docker-compose run web python manage.py makemigrations titles --no-input
 docker-compose run web python manage.py migrate --no-input
 ```
 #### Шаг пятый. Сбор статики
