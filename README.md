@@ -28,16 +28,25 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 Данная инструкция взята из [документации Docker](https://docs.docker.com/engine/install/). Там же вы найдете инструкцию по установке docker-compose на другие системы.
 
-#### Шаг второй. Сборка и запуск контейнера
+#### Шаг второй. Создание переменных окружения
+В папке api_yamdb создайте файл .env и пропишите в нём следущие переменные окружения
+```bash
+DB_NAME=postgres_db_name
+DB_USER=postgres_db_user
+DB_PASSWORD=postgres_db_password
+DB_HOST=db
+DB_PORT=5432
+```
+#### Шаг третий. Сборка и запуск контейнера
 ```bash
 docker-compose up -d --build
 ```
-#### Шаг третий. База данных
+#### Шаг четвертый. База данных
 ```bash
 docker-compose run web python manage.py makemigrations --no-input
 docker-compose run web python manage.py migrate --no-input
 ```
-#### Шаг четвертый. Сбор статики
+#### Шаг пятый. Сбор статики
 ```bash
 docker-compose run web python manage.py collectstatic --no-input
 ```
