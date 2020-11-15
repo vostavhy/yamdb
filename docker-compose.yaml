@@ -16,10 +16,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     # адрес файла, где хранятся переменные окружения
-    environment:
-      - POSTGRES_USER=yamdb_user
-      - POSTGRES_PASSWORD=yamdb_password
-      - POSTGRES_DB=yamdb_db
+    env_file:
+      - api_yamdb/.env
   web:
     build: .
     restart: always
