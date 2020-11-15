@@ -10,11 +10,15 @@
 #### Шаг второй. Создание переменных окружения
 В папке api_yamdb создайте файл .env и пропишите в нём следущие переменные окружения
 ```bash
-DB_NAME=postgres_db_name
-DB_USER=postgres_db_user
-DB_PASSWORD=postgres_db_password
+DB_NAME=yamdb_db
+DB_USER=yamdb_user
+DB_PASSWORD=yamdb_password
 DB_HOST=db
 DB_PORT=5432
+
+POSTGRES_USER=yamdb_user
+POSTGRES_PASSWORD=yamdb_password
+POSTGRES_DB=yamdb_db
 ```
 #### Шаг третий. Сборка и запуск контейнера
 ```bash
