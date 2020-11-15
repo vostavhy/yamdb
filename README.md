@@ -1,4 +1,4 @@
-# Докеризация API для Ya|MDb. Интернет-сервис о кино на базе Django REST
+# Докеризация API для Ya|MDb. Интернет-сервис о кино на базе Django REST API
 
 ![Build Status](https://github.com/vostavhy/yamdb_final/workflows/yamdb_final/badge.svg)
 
